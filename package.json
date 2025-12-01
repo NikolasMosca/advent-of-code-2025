@@ -1,0 +1,31 @@
+{
+  "name": "advent-of-code-2025",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx",
+    "day": "./run-day.sh",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikolasMosca/advent-of-code-2025.git"
+  },
+  "keywords": ["advent-of-code", "typescript"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikolasMosca/advent-of-code-2025/issues"
+  },
+  "homepage": "https://github.com/NikolasMosca/advent-of-code-2025#readme",
+  "description": "Advent of Code 2025 solutions in TypeScript",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vitest/ui": "^2.1.8",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
