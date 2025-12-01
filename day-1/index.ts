@@ -6,7 +6,7 @@ export function solvePart1(input: string): number {
   const dialRotations = parseInput(input);
   const { password } = dialRotations.reduce(
     ({ dial, password }, { direction, clicks }) => {
-      const updatedDial = rotateDial(dial, direction, clicks);
+      const { dial: updatedDial } = rotateDial(dial, direction, clicks);
       return {
         dial: updatedDial,
         password: updatedDial === 0 ? password + 1 : password,
@@ -22,9 +22,22 @@ export function solvePart1(input: string): number {
 }
 
 export function solvePart2(input: string): number {
-  const lines = parseInput(input);
-  // TODO: Implement your solution for part 2
-  return 0;
+  const dialRotations = parseInput(input);
+  const { password } = dialRotations.reduce(
+    ({ dial, password }, { direction, clicks }) => {
+      const { dial: updatedDial, zeroCount } = rotateDial(dial, direction, clicks);
+      return {
+        dial: updatedDial,
+        password: password + zeroCount,
+      };
+    },
+    {
+      dial: 50,
+      password: 0,
+    }
+  );
+
+  return password;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

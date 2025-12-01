@@ -18,21 +18,28 @@ export const parseInput = (input: string): DialRotation[] =>
     }));
 
 export const rotateDial = (dial: number, direction: Direction, clicks: number) => {
-  if (direction === Direction.LEFT) {
-    dial -= clicks;
+  let zeroCount = 0;
+
+  if (dial === 0) {
+    zeroCount = Math.floor(clicks / 100);
   } else {
-    dial += clicks;
+    const firstZero = direction === Direction.RIGHT ? 100 - dial : dial;
+    if (clicks >= firstZero) {
+      zeroCount = 1 + Math.floor((clicks - firstZero) / 100);
+    }
   }
 
-  if (dial < 0) {
-    dial = (dial % 100) + 100;
-  } else if (dial > 99) {
-    dial = dial % 100;
+  let newDial = direction === Direction.LEFT ? dial - clicks : dial + clicks;
+
+  if (newDial < 0) {
+    const mod = newDial % 100;
+    newDial = mod === 0 ? 0 : mod + 100;
+  } else if (newDial >= 100) {
+    newDial = newDial % 100;
   }
 
-  if (dial === 100) {
-    dial = 0;
-  }
-
-  return dial;
+  return {
+    dial: newDial,
+    zeroCount,
+  };
 };
