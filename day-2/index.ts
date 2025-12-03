@@ -40,7 +40,7 @@ export function solvePart2(input: string): number {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const input = readFileSync(join(import.meta.dirname, "input.txt"), "utf-8");
 
-  console.log("Day 1 - Advent of Code 2025");
+  console.log("Day 2 - Advent of Code 2025");
   console.log("----------------------------");
   console.log("Part 1:", solvePart1(input));
   console.log("Part 2:", solvePart2(input));
