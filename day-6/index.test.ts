@@ -102,7 +102,7 @@ describe("Day 6", () => {
   describe("parseInputForPart2", () => {
     it("should parse the example input correctly (transposed, right-to-left)", () => {
       const result = parseInputForPart2(exampleInput);
-      console.log(result);
+
       // Original input:
       // 123 328  51 64
       //  45 64  387 23
