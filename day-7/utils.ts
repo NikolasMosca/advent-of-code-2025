@@ -1,5 +1,3 @@
-import { randomUUID } from "crypto";
-
 export type Grid = string[][];
 
 export interface BeamResult {
